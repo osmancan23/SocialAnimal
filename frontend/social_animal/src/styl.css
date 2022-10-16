@@ -9,7 +9,7 @@ body {
     display: grid;
     height: 100vh;
     place-items: center;
-    background-image: url("topoboi.com-8964.jpg");
+    background-image: url(../images/dog_bg.jpg);
 }
 
 
