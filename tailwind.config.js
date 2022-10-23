@@ -47,6 +47,7 @@ module.exports = {
           13: "#767676",
           14: "#A3E8DE",
           15: "#F6F6F6",
+          16: "#B2B2B2",
         },
 
         utils: {

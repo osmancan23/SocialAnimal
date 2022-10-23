@@ -1,4 +1,4 @@
-import { Route, NavLink, Routes } from "react-router-dom";
+import { Route, NavLink, Routes, Link } from "react-router-dom";
 
 
 
@@ -11,21 +11,24 @@ import Home from "./pages/Home";
 import Forum from "./pages/Forum";
 import Blog from "./pages/Blog";
 import Login from "./pages/Login";
+import dogs from "./images/dogs.jpg";
 function App() {
  const [status, setStatus] = useState(false);
 
   return (
     <>
      
-      <nav className="flex h-[80px] w-full items-center justify-between bg-brand-2 opacity-40 shadow-2xl">
-        <div className="w-[20%] pl-[60px]">
-          <div className="h-[50px] w-[50px] bg-red-400 pl-5"></div>
-          <p className="">asdsad</p>
+      <nav className="flex h-[80px] w-full text-white items-center justify-between bg-[#395144] pl-2 shadow-2xl">
+        <div className="md:w-[20%] md:pl-[60px] ">
+        <NavLink to="/">
+          <img className="h-[60px] w-[60px]   rounded-[50%]" src={dogs} alt="dogs"></img>
+        </NavLink>
         </div>
+     
         <div className="ml-8 flex w-[30%] gap-x-10 items-center md-max:hidden">
-          <NavLink to="/Forum">Forum</NavLink>
-          <NavLink to="/Blog">Blog</NavLink>
-           <NavLink to="/Login" className="flex flex-col justify-center items-center" ><FaUserAlt className="w-[20px] h-[20px]"/>
+          <NavLink to="/Forum" className="hover:text-brand-16">Forum</NavLink>
+          <NavLink to="/Blog" className="hover:text-brand-16">Blog</NavLink>
+           <NavLink to="/Login" className="flex flex-col justify-center items-center hover:text-brand-16" ><FaUserAlt className="w-[20px] h-[20px]"/>
           <p>Login</p>
           </NavLink>
         </div>
