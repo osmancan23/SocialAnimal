@@ -3,7 +3,7 @@ import "../index.css";
 const Forum = () => {
   return (
     <div className="text-brand-4">
-<p>forum güncellendi</p>
+<p>forum güncellendiaaa</p>
     </div>
   );
 };

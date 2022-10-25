@@ -12,6 +12,7 @@ import Forum from "./pages/Forum";
 import Blog from "./pages/Blog";
 import Login from "./pages/Login";
 import dogs from "./images/dogs.jpg";
+import Register from "./pages/Register";
 function App() {
  const [status, setStatus] = useState(false);
 
@@ -43,6 +44,8 @@ function App() {
         
         <Route path="/Forum" element={<Forum />} />
         <Route path="/Login" element={<Login />} />
+        <Route path="/Register" element={<Register />} />
+
         <Route path="/Blog" element={<Blog />} />
         {/* <Route path="*" element={<NotFound />} /> */}
       </Routes>
