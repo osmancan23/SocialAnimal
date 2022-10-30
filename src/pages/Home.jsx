@@ -1,71 +1,78 @@
 import React from "react";
+import Slider from "react-slick";
+import PriceInfoCard from "../components/PriceInfoCard";
+import dogs from "../images/cat.jpg";
 
 const Home = () => {
+  function ArrowHidden(props) {
+    const { style } = props;
+    return <div style={{ ...style, display: "hidden" }} />;
+  }
+
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    nextArrow: <ArrowHidden />,
+    prevArrow: <ArrowHidden />,
+  };
   return (
-    <div>
-      <div className="flex justify-center mt-28">
-        <div className="flex flex-row gap-x-5 px-5 lg-max:flex-col lg-max:gap-y-5 ">
-          <div className="flex max-w-[400px] flex-col  gap-y-5  shadow-outlineShadow p-10 bg-[#F0EBCE] rounded-lg">
-            <p  className="text-center text-[30px] font-medium">Visyonumuz</p>
-            <p>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nam nisi
-              voluptatem iusto quod quaerat nobis placeat rem reprehenderit
-              itaque, magnam eveniet ut vel deleniti alias officiis veritatis
-              possimus assumenda similique. Praesentium nesciunt quisquam libero
-              fugiat nemo veniam, provident rerum voluptatum exercitationem ad,
-              deleniti error ipsum rem architecto facilis ratione facere?
-            </p>
-            <p>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nam nisi
-              voluptatem iusto quod quaerat nobis placeat rem reprehenderit
-              itaque, magnam eveniet ut vel deleniti alias officiis veritatis
-              possimus assumenda similique. Praesentium nesciunt quisquam libero
-              fugiat nemo veniam, provident rerum voluptatum exercitationem ad,
-              deleniti error ipsum rem architecto facilis ratione facere?
-            </p>
-          </div>
-          <div className="flex max-w-[400px] flex-col  gap-y-5  shadow-outlineShadow p-10 bg-[#F0EBCE] rounded-lg">
-            <p className="text-center text-[30px] font-medium">Hayvan Sevgisi</p>
-            <p>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nam nisi
-              voluptatem iusto quod quaerat nobis placeat rem reprehenderit
-              itaque, magnam eveniet ut vel deleniti alias officiis veritatis
-              possimus assumenda similique. Praesentium nesciunt quisquam libero
-              fugiat nemo veniam, provident rerum voluptatum exercitationem ad,
-              deleniti error ipsum rem architecto facilis ratione facere?
-            </p>
-            <p>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nam nisi
-              voluptatem iusto quod quaerat nobis placeat rem reprehenderit
-              itaque, magnam eveniet ut vel deleniti alias officiis veritatis
-              possimus assumenda similique. Praesentium nesciunt quisquam libero
-              fugiat nemo veniam, provident rerum voluptatum exercitationem ad,
-              deleniti error ipsum rem architecto facilis ratione facere?
-            </p>
-          </div>
-          <div className="flex max-w-[400px] flex-col  gap-y-5  shadow-outlineShadow p-10 bg-[#F0EBCE] rounded-lg">
-            <p className="text-center text-[30px] font-medium">Misyonumuz</p>
-            <p>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nam nisi
-              voluptatem iusto quod quaerat nobis placeat rem reprehenderit
-              itaque, magnam eveniet ut vel deleniti alias officiis veritatis
-              possimus assumenda similique. Praesentium nesciunt quisquam libero
-              fugiat nemo veniam, provident rerum voluptatum exercitationem ad,
-              deleniti error ipsum rem architecto facilis ratione facere?
-            </p>
-            <p>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nam nisi
-              voluptatem iusto quod quaerat nobis placeat rem reprehenderit
-              itaque, magnam eveniet ut vel deleniti alias officiis veritatis
-              possimus assumenda similique. Praesentium nesciunt quisquam libero
-              fugiat nemo veniam, provident rerum voluptatum exercitationem ad,
-              deleniti error ipsum rem architecto facilis ratione facere?
-            </p>
-          </div>
+    <>
+      <div className="flex justify-center">
+        <div className="mt-52 h-[500px] w-[1200px]">
+          <Slider {...settings} className="h-[520px] w-full">
+            <div className="relative h-[500px] w-full">
+              <img src={dogs} alt="" className="aspect-auto h-[500px] w-full" />
+              <span className="absolute top-[150px] left-10 text-2xl font-bold text-brand-4">
+                Kediler Hakkında Soru Sor
+              </span>
+              <span className="absolute top-[250px] left-10 text-xl font-medium text-brand-4">
+                Soğuk kış aylarında sevimli hayvanlarımız için destek
+                bekliyoruz...
+              </span>
+              <button className="absolute bottom-[80px] left-10 h-[40px] w-[250px] bg-white font-bold opacity-80">
+                Dafa Fazlası...
+              </button>
+            </div>
+            <div className="relative h-[500px] w-full">
+              <img src={dogs} alt="" className="aspect-auto h-[500px] w-full" />
+              <span className="absolute top-[150px] left-10 text-2xl font-bold text-brand-4">
+                Kediler Hakkında Soru Sor
+              </span>
+              <span className="absolute top-[250px] left-10 text-xl font-medium text-brand-4">
+                Soğuk kış aylarında sevimli hayvanlarımız için destek
+                bekliyoruz...
+              </span>
+              <button className="absolute bottom-[80px] left-10 h-[40px] w-[250px] bg-white font-bold opacity-80">
+                Dafa Fazlası...
+              </button>
+            </div>
+            <div className="relative h-[500px] w-full">
+              <img src={dogs} alt="" className="aspect-auto h-[500px] w-full" />
+              <span className="absolute top-[150px] left-10 text-2xl font-bold text-brand-4">
+                Kediler Hakkında Soru Sor
+              </span>
+              <span className="absolute top-[250px] left-10 text-xl font-medium text-brand-4">
+                Soğuk kış aylarında sevimli hayvanlarımız için destek
+                bekliyoruz...
+              </span>
+              <button className="absolute bottom-[80px] left-10 h-[40px] w-[250px] bg-white font-bold opacity-80">
+                Dafa Fazlası...
+              </button>
+            </div>
+          </Slider>
         </div>
       </div>
-      r
-    </div>
+      <div className="flex justify-center mb-16">
+        <div className="mt-[80px] grid max-w-[1400px] grid-cols-4 gap-6">
+          {new Array(12).fill().map(() => (
+            <PriceInfoCard />
+          ))}{" "}
+        </div>
+      </div>
+    </>
   );
 };
 
