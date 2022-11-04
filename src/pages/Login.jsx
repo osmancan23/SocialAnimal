@@ -1,12 +1,16 @@
 import React from "react";
 import {  NavLink } from "react-router-dom";
-import Register from "./Register";
+import { Container } from "../components/Container";
 
 const Login = () => {
   return (
-    <div>
-      <div className="mx-auto mt-[180px] flex max-w-[900px] flex-col gap-y-5  rounded-lg  p-10 shadow-outlineShadow">
-        <label htmlFor="mail" className="text-[24px] font-medium">
+    <Container>
+    <div className="flex flex-row gap-x-5  justify-center ">
+      <div className="mt-[100px] min-w-[600px] h-[500px] bg-brand-7">
+
+      </div>
+      <div className="mt-[100px] flex   w-[800px] flex-col gap-y-5  rounded-lg  p-10 shadow-outlineShadow">
+        <label htmlFor="mail" className="mt-[50px] text-[24px] font-medium">
           E-mail{" "}
         </label>
         <input type="text" placeholder="Email adresinizi giriniz" id="mail" className="rounded-lg border outline-none h-10 pl-5" />
@@ -27,6 +31,8 @@ const Login = () => {
       </div>
      
     </div>
+    </Container>
+
     
   );
 };

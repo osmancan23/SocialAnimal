@@ -65,13 +65,13 @@ const Home = () => {
           </Slider>
         </div>
       </div>
-      <div className="flex justify-center mb-16">
+      {/* <div className="flex justify-center mb-16">
         <div className="mt-[80px] grid max-w-[1400px] grid-cols-4 gap-6">
           {new Array(12).fill().map(() => (
             <PriceInfoCard />
           ))}{" "}
         </div>
-      </div>
+      </div> */}
     </>
   );
 };

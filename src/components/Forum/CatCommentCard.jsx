@@ -1,6 +1,6 @@
 import React from "react";
 
-const CommentCard = () => {
+const CatCommentCard = () => {
   return (
     <div className="mt-10 p-10 shadow-outlineShadow flex w-full gap-x-10 rounded-lg bg-[##F7F7F7]">
       <div className="h-[80px] w-[80px] rounded-[50%] bg-slate-500" />
@@ -20,4 +20,4 @@ const CommentCard = () => {
   );
 };
 
-export default CommentCard;
+export default CatCommentCard;
