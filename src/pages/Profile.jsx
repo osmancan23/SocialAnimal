@@ -13,26 +13,26 @@ const Profile = () => {
                 src={image}
                 className="h-[400px] w-[400px] rounded-[12px]"
               ></img>
-              <p className="text-2xl font-semibold">Mehmet Er</p>
+              <p className="text-2xl font-semibold">İsim Soyisim</p>
             </div>
             <div className="flex flex-col gap-y-[100px]" >
               <div className="flex items-center gap-x-5">
                 <label htmlFor="username" className="text-xl font-semibold">
                   Kullanıcı Adı:
                 </label>
-                <input type="text" id="username" className="border p-2 w-[300px]" />
+                <input type="text"  placeholder="Kullanıcı Adınızı giriniz" id="username" className="border p-2 w-[300px]" />
               </div>
               <div className="flex w-full flex-row justify-between">
                 <label htmlFor="email" className="text-xl font-semibold">
                   E-posta:
                 </label>
-                <input type="email" id="email" className="border p-2 w-[300px]" />
+                <input type="email" placeholder="E-posta Adresinizi giriniz" id="email" className="border p-2 w-[300px]" />
               </div>
               <div className="flex w-full flex-row justify-between">
                 <label htmlFor="password" className="text-xl font-semibold">
                   Şifre:
                 </label>
-                <input type="password" id="password" className="border p-2 w-[300px]" />
+                <input type="password" placeholder="Şİfrenizi giriniz" id="password" className="border p-2 w-[300px]" />
               </div>
               <div className="flex w-full flex-row justify-between">
                 <label htmlFor="bio" className="text-xl font-semibold">

@@ -6,7 +6,7 @@ const Login = () => {
   return (
     <Container>
     <div className="flex flex-row gap-x-5  justify-center ">
-      <div className="mt-[100px] min-w-[600px] h-[500px] bg-brand-7">
+     <div className="mt-[100px] min-w-[600px] h-[500px] bg-brand-7">
 
       </div>
       <div className="mt-[100px] flex   w-[800px] flex-col gap-y-5  rounded-lg  p-10 shadow-outlineShadow">

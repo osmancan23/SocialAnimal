@@ -1,7 +1,10 @@
 import React from "react";
 import Slider from "react-slick";
 import PriceInfoCard from "../components/PriceInfoCard";
-import dogs from "../images/cat.jpg";
+import cats from "../images/cat.jpg";
+import dogs from "../images/kopek.jpg";
+import birds from "../images/birds.jpg";
+
 
 const Home = () => {
   function ArrowHidden(props) {
@@ -24,11 +27,11 @@ const Home = () => {
         <div className="mt-52 h-[500px] w-[1200px]">
           <Slider {...settings} className="h-[520px] w-full">
             <div className="relative h-[500px] w-full">
-              <img src={dogs} alt="" className="aspect-auto h-[500px] w-full" />
-              <span className="absolute top-[150px] left-10 text-2xl font-bold text-brand-4">
+              <img src={cats} alt="" className="aspect-auto h-[500px] w-full" />
+              <span className="absolute top-[150px] left-10 text-2xl font-bold text-brand-1">
                 Kediler Hakkında Soru Sor
               </span>
-              <span className="absolute top-[250px] left-10 text-xl font-medium text-brand-4">
+              <span className="absolute top-[250px] left-10 text-xl font-medium text-brand-1">
                 Soğuk kış aylarında sevimli hayvanlarımız için destek
                 bekliyoruz...
               </span>
@@ -38,28 +41,28 @@ const Home = () => {
             </div>
             <div className="relative h-[500px] w-full">
               <img src={dogs} alt="" className="aspect-auto h-[500px] w-full" />
-              <span className="absolute top-[150px] left-10 text-2xl font-bold text-brand-4">
-                Kediler Hakkında Soru Sor
+              <span className="absolute top-[150px] left-10 text-2xl font-bold text-brand-1">
+                Köpekler Hakkında Soru Sor
               </span>
-              <span className="absolute top-[250px] left-10 text-xl font-medium text-brand-4">
+              <span className="absolute top-[250px] left-10 text-xl font-medium text-brand-15">
                 Soğuk kış aylarında sevimli hayvanlarımız için destek
                 bekliyoruz...
               </span>
               <button className="absolute bottom-[80px] left-10 h-[40px] w-[250px] bg-white font-bold opacity-80">
-                Dafa Fazlası...
+                Daha Fazlası...
               </button>
             </div>
             <div className="relative h-[500px] w-full">
-              <img src={dogs} alt="" className="aspect-auto h-[500px] w-full" />
-              <span className="absolute top-[150px] left-10 text-2xl font-bold text-brand-4">
-                Kediler Hakkında Soru Sor
+              <img src={birds} alt="" className="aspect-auto h-[500px] w-full" />
+              <span className="absolute top-[150px] left-10 text-2xl font-bold text-brand-1">
+                Kuşlar Hakkında Soru Sor
               </span>
-              <span className="absolute top-[250px] left-10 text-xl font-medium text-brand-4">
+              <span className="absolute top-[250px] left-10 text-xl font-medium text-brand-1">
                 Soğuk kış aylarında sevimli hayvanlarımız için destek
                 bekliyoruz...
               </span>
               <button className="absolute bottom-[80px] left-10 h-[40px] w-[250px] bg-white font-bold opacity-80">
-                Dafa Fazlası...
+                Daha Fazlası...
               </button>
             </div>
           </Slider>
