@@ -4,13 +4,12 @@ import PriceInfoCard from "../components/PriceInfoCard";
 import cats from "../images/cat.jpg";
 import dogs from "../images/kopek.jpg";
 import birds from "../images/birds.jpg";
-import birds from "../images/birds.jpg";
 
 
 const Home = () => {
   function ArrowHidden(props) {
     const { style } = props;
-    return <div style={{ ...style, display: "hidden" }} />;
+    return <div style={{ ...style, display: "hfdsj" }} />;
   }
 
   const settings = {
