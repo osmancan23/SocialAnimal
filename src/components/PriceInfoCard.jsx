@@ -1,5 +1,5 @@
 import React from 'react'
-import dogs from "../images/cat.jpg";
+import dogs from "../images/kopek.jpg";
 
 
 const PriceInfoCard = () => {

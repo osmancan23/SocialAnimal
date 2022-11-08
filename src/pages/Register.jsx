@@ -6,7 +6,7 @@ const Register = () => {
     <Container>
       <div className="flex flex-row justify-center  gap-x-5 ">
         <div className="mt-[100px] h-[500px] w-[600px] bg-brand-7"></div>
-        <div className=" mt-[100px] flex w-[800px] flex-col gap-y-5  rounded-lg  p-10 shadow-outlineShadow">
+        <div className="mb-20  mt-[100px] flex w-[800px] flex-col gap-y-5  rounded-lg  p-10 shadow-outlineShadow">
           <label htmlFor="mail" className="text-[24px] font-medium">
             Ad Soyad
           </label>
