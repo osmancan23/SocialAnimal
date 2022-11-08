@@ -1,16 +1,17 @@
-import React, { useState } from "react";
-import { FaBook, FaPeopleArrows, FaUserAlt } from "react-icons/fa";
-import { GiHamburgerMenu } from "react-icons/gi";
-import { GrClose } from "react-icons/gr";
-import { NavLink, Outlet } from "react-router-dom";
+import React, { useState } from 'react'
+import { FaBook, FaPeopleArrows, FaUserAlt } from 'react-icons/fa'
+import { GiHamburgerMenu } from 'react-icons/gi'
+import { GrClose } from 'react-icons/gr'
+import { NavLink, Outlet } from 'react-router-dom'
 import dogs from "../images/cat.jpg";
 
-const HomeLayout = () => {
+
+const ForumLayout = () => {
   const [status, setStatus] = useState(false);
 
   return (
     <div>
-      <nav className="flex h-[80px] w-full items-center justify-between bg-[#395144] pl-2 text-white shadow-cardShadow">
+         <nav className="flex h-[80px] w-full items-center justify-between bg-[#395144] pl-2 text-white shadow-cardShadow">
         <div className="md:w-[20%] md:pl-[60px] ">
           <NavLink to="/">
             <img
@@ -64,9 +65,9 @@ const HomeLayout = () => {
           />
         )}
       </nav>
-      <Outlet />
+        <Outlet/>
     </div>
-  );
-};
+  )
+}
 
-export default HomeLayout;
+export default ForumLayout
