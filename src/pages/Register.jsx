@@ -40,7 +40,7 @@ const Register = () => {
           </button>
           <div className="flex gap-x-4">
             <p className="font-medium">Zaten bir hesabınız var mı?</p>
-            <NavLink to="/Login">
+            <NavLink to="/Auth">
               <p className="cursor-pointer font-bold underline">Giriş Yap</p>
             </NavLink>
           </div>
