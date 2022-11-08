@@ -39,7 +39,7 @@ const Forum = () => {
   return (
     <div>
       <Container>
-        <h2 className="mt-[120px] text-[36px] font-semibold">Konular</h2>
+        <h2 className="mt-20 [120px] text-[36px] font-semibold">Konular</h2>
         <div className="mt-[50px] flex gap-x-10">
           {forumCategory.map((item,index) => (
             <ForumCard key={item.id} name={item.name} image={item.image} active={active} setActive={setActive} />

@@ -3,7 +3,7 @@ import React from 'react'
 const Blog = () => {
   return (
     <div>
-    <div className="flex justify-center mt-28">
+    <div className="flex justify-center mt-20">
       <div className="flex flex-row gap-x-5 px-5 lg-max:flex-col lg-max:gap-y-5 ">
         <div className="flex max-w-[400px] flex-col  gap-y-5  shadow-outlineShadow p-10 bg-[#F0EBCE] rounded-lg">
           <p  className="text-center text-[30px] font-medium">Visyonumuz</p>
