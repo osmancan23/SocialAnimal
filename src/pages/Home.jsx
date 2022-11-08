@@ -1,6 +1,5 @@
 import React from "react";
 import Slider from "react-slick";
-import PriceInfoCard from "../components/PriceInfoCard";
 import dogs from "../images/cat.jpg";
 
 const Home = () => {
