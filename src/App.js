@@ -10,11 +10,16 @@ import { PrivateRoute } from "./components/PrivateRoute";
 import Profile from "./pages/Profile";
 import HomeLayout from "./pages/HomeLayout";
 import AuthLayout from "./AuthLayout";
+import React from 'react';
+import './App.css';
+
 
 function App() {
 
+
   return (
     <>
+   
       <Routes>
         <Route path="/" element={<HomeLayout />}>
           <Route index={true} element={<Home />} />
