@@ -9,12 +9,12 @@ const CatCommentCard = () => {
           <p className="font-medium">OSMANCAN AKAGÜNDÜZ</p>
           <div className="flex gap-x-10">
             <p className="font-medium">
-              KONU:<span className="font-bold">KEDİ</span>
+              Konu : <span className="font-bold">Kediler</span>
             </p>
             <span className="font-medium">08.08.2022</span>
           </div>
         </div>
-        <p className="mt-5">Kedilerin bakımı nasıl olmalı</p>
+        <p className="mt-5">Kedilerin bakımı nasıl olmalı ?</p>
       </div>
     </div>
   );

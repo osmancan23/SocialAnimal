@@ -1,26 +1,38 @@
-/* eslint-disable jsx-a11y/alt-text */
-import React from "react";
+import {  NavLink, useNavigate } from "react-router-dom";
 import { Container } from "../components/Container";
-import image from "../images/dogs.jpg";
-const Profile = () => {
+import {useAuth} from "../components/Context/UseContext"
+import lottie from 'lottie-web';
+import React,{useEffect,useRef} from 'react';
+import image from "../images/kopek.jpg";
+ 
+function Profile() {
+  const container=useRef(null)
+  useEffect(() => {
+    lottie.loadAnimation({
+      container:container.current,
+      renderer:'svg',
+      loop:true,
+      autoplay:true,
+      animationData:require("../lotties/dogWalking.json")
+    })
+  }, [])
   return (
     <div>
       <Container>
-        <div className="mt-20 [200px] flex max-w-[900px] flex-col items-center">
+        <div className="mt-20 [200px] flex max-w-[1000px] flex-col items-center">
           <div className="flex w-full flex-row justify-between">
-            <div className="flex h-[450px] w-[400px] flex-col gap-y-5">
-              <img
-                src={image}
-                className="h-[400px] w-[400px] rounded-[12px]"
-              ></img>
+            <div className="flex h-[350px] w-[350px] flex-col gap-y-5">
+              
+            <div className='container' ref={container}></div>
+
              {/* <p className="text-2xl font-semibold">İsim Soyisim</p>*/}
             </div>
-            <div className="flex flex-col gap-y-[100px]" >
+            <div className="flex flex-col gap-y-[51px]" >
               <div className="flex items-center gap-x-5">
                 <label htmlFor="username" className="text-xl font-semibold">
-                  Kullanıcı Adı:
+                  Ad-Soyad:
                 </label>
-                <input type="text"  placeholder="Kullanıcı Adınızı giriniz" id="username" className="border p-2 w-[300px]" />
+                <input type="text"  placeholder="Ad-Soyad giriniz" id="username" className="border p-2 w-[300px]" />
               </div>
               <div className="flex w-full flex-row justify-between">
                 <label htmlFor="email" className="text-xl font-semibold">
@@ -32,8 +44,15 @@ const Profile = () => {
                 <label htmlFor="password" className="text-xl font-semibold">
                   Şifre:
                 </label>
-                <input type="password" placeholder="Şİfrenizi giriniz" id="password" className="border p-2 w-[300px]" />
+                <input type="password" placeholder="Şifrenizi giriniz" id="password" className="border p-2 w-[300px]" />
               </div>
+              <div className="flex w-full flex-row justify-between">
+                <label htmlFor="password" className="text- xl font-semibold">
+                  Bağış miktarı: 
+                </label>
+                <input type="password" placeholder="Bağış miktarını giriniz" id="password" className="border p-2 w-[300px]" />
+              </div>
+              
               {/* <div className="flex w-full flex-row justify-between">
                 <label htmlFor="bio" className="text-xl font-semibold">
                  Bio:

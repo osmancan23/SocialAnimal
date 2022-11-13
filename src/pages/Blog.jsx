@@ -1,4 +1,15 @@
 import React from 'react'
+import { Container } from "../components/Container";
+import ForumCard from "../components/Forum/ForumCard";
+import "../index.css";
+import dog from "../images/kopek.jpg";
+import cat from "../images/kedi.jpg";
+import birds from "../images/birds.jpg";
+import animal from "../images/animal.jpg";
+import CatCommentCard from "../components/Forum/CatCommentCard";
+import DogCommentCard from "../components/Forum/DogCommentCard";
+import BirdsCommentCard from "../components/Forum/BirdsCommentCard";
+
 
 const Blog = () => {
   return (
@@ -62,6 +73,7 @@ const Blog = () => {
             deleniti error ipsum rem architecto facilis ratione facere?
           </p>
         </div>
+        
       </div>
     </div>
     

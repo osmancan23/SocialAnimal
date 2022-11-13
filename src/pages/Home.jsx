@@ -1,11 +1,11 @@
 import React from "react";
 import Slider from "react-slick";
-
 import PriceInfoCard from "../components/PriceInfoCard";
-import cats from "../images/cat.jpg";
+import cats from "../images/kedi.jpg";
 import dogs from "../images/kopek.jpg";
 import birds from "../images/birds.jpg";
-import { Player, } from '@lottiefiles/react-lottie-player';
+//import { Player, } from '@lottiefiles/react-lottie-player';
+
 
 
 
@@ -37,12 +37,12 @@ const Home = () => {
               <span className="absolute top-[150px] left-10 text-2xl font-bold text-brand-1">
                 Kediler Hakkında Soru Sor
               </span>
-              <span className="absolute top-[250px] left-10 text-xl font-medium text-brand-1">
+              <span className="absolute top-[220px] left-10 text-xl font-medium text-brand-15">
                 Soğuk kış aylarında sevimli hayvanlarımız için destek
                 bekliyoruz...
               </span>
               <button className="absolute bottom-[80px] left-10 h-[40px] w-[250px] bg-white font-bold opacity-80">
-                Dafa Fazlası...
+                Daha Fazlası...
               </button>
             </div>
             <div className="relative h-[500px] w-full">
@@ -50,7 +50,7 @@ const Home = () => {
               <span className="absolute top-[150px] left-10 text-2xl font-bold text-brand-1">
                 Köpekler Hakkında Soru Sor
               </span>
-              <span className="absolute top-[250px] left-10 text-xl font-medium text-brand-15">
+              <span className="absolute top-[220px] left-10 text-xl font-medium text-brand-15">
                 Soğuk kış aylarında sevimli hayvanlarımız için destek
                 bekliyoruz...
               </span>
@@ -63,7 +63,7 @@ const Home = () => {
               <span className="absolute top-[150px] left-10 text-2xl font-bold text-brand-1">
                 Kuşlar Hakkında Soru Sor
               </span>
-              <span className="absolute top-[250px] left-10 text-xl font-medium text-brand-1">
+              <span className="absolute top-[220px] left-10 text-xl font-medium text-brand-15">
                 Soğuk kış aylarında sevimli hayvanlarımız için destek
                 bekliyoruz...
               </span>
@@ -75,8 +75,8 @@ const Home = () => {
         </div>
       </div>
       {<div className="flex justify-center mb-16 ">
-        <div className="mt-[80px] grid max-w-[1400px] grid-cols-3 gap-10">
-          {new Array(6).fill().map(() => (
+        <div className="mt-[80px] grid max-w-[1400px] grid-cols-3 gap-10  ">
+          {new Array(3).fill().map(() => ( 
             <PriceInfoCard />
           ))}{" "}
         </div>
