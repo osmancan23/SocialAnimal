@@ -1,9 +1,20 @@
 import React from 'react'
+import { Container } from "../components/Container";
+import ForumCard from "../components/Forum/ForumCard";
+import "../index.css";
+import dog from "../images/kopek.jpg";
+import cat from "../images/kedi.jpg";
+import birds from "../images/birds.jpg";
+import animal from "../images/animal.jpg";
+import CatCommentCard from "../components/Forum/CatCommentCard";
+import DogCommentCard from "../components/Forum/DogCommentCard";
+import BirdsCommentCard from "../components/Forum/BirdsCommentCard";
+
 
 const Blog = () => {
   return (
     <div>
-    <div className="flex justify-center mt-28">
+    <div className="flex justify-center mt-20">
       <div className="flex flex-row gap-x-5 px-5 lg-max:flex-col lg-max:gap-y-5 ">
         <div className="flex max-w-[400px] flex-col  gap-y-5  shadow-outlineShadow p-10 bg-[#F0EBCE] rounded-lg">
           <p  className="text-center text-[30px] font-medium">Visyonumuz</p>
@@ -62,6 +73,7 @@ const Blog = () => {
             deleniti error ipsum rem architecto facilis ratione facere?
           </p>
         </div>
+        
       </div>
     </div>
     
