@@ -1,6 +1,13 @@
 import React from "react";
 import Slider from "react-slick";
-import dogs from "../images/cat.jpg";
+import PriceInfoCard from "../components/PriceInfoCard";
+import cats from "../images/kedi.jpg";
+import dogs from "../images/kopek.jpg";
+import birds from "../images/birds.jpg";
+//import { Player, } from '@lottiefiles/react-lottie-player';
+
+
+
 
 const Home = () => {
   function ArrowHidden(props) {
@@ -19,58 +26,61 @@ const Home = () => {
   };
   return (
     <>
+
       <div className="flex justify-center">
-        <div className="mt-52 h-[500px] w-[1200px]">
+        
+
+        <div className="mt-20 h-[500px] w-[1000px]">
           <Slider {...settings} className="h-[520px] w-full">
             <div className="relative h-[500px] w-full">
-              <img src={dogs} alt="" className="aspect-auto h-[500px] w-full" />
-              <span className="absolute top-[150px] left-10 text-2xl font-bold text-brand-4">
+              <img src={cats} alt="" className="aspect-auto h-[500px] w-full" />
+              <span className="absolute top-[150px] left-10 text-2xl font-bold text-brand-1">
                 Kediler Hakkında Soru Sor
               </span>
-              <span className="absolute top-[250px] left-10 text-xl font-medium text-brand-4">
+              <span className="absolute top-[220px] left-10 text-xl font-medium text-brand-15">
                 Soğuk kış aylarında sevimli hayvanlarımız için destek
                 bekliyoruz...
               </span>
               <button className="absolute bottom-[80px] left-10 h-[40px] w-[250px] bg-white font-bold opacity-80">
-                Dafa Fazlası...
+                Daha Fazlası...
               </button>
             </div>
             <div className="relative h-[500px] w-full">
               <img src={dogs} alt="" className="aspect-auto h-[500px] w-full" />
-              <span className="absolute top-[150px] left-10 text-2xl font-bold text-brand-4">
-                Kediler Hakkında Soru Sor
+              <span className="absolute top-[150px] left-10 text-2xl font-bold text-brand-1">
+                Köpekler Hakkında Soru Sor
               </span>
-              <span className="absolute top-[250px] left-10 text-xl font-medium text-brand-4">
+              <span className="absolute top-[220px] left-10 text-xl font-medium text-brand-15">
                 Soğuk kış aylarında sevimli hayvanlarımız için destek
                 bekliyoruz...
               </span>
               <button className="absolute bottom-[80px] left-10 h-[40px] w-[250px] bg-white font-bold opacity-80">
-                Dafa Fazlası...
+                Daha Fazlası...
               </button>
             </div>
             <div className="relative h-[500px] w-full">
-              <img src={dogs} alt="" className="aspect-auto h-[500px] w-full" />
-              <span className="absolute top-[150px] left-10 text-2xl font-bold text-brand-4">
-                Kediler Hakkında Soru Sor
+              <img src={birds} alt="" className="aspect-auto h-[500px] w-full" />
+              <span className="absolute top-[150px] left-10 text-2xl font-bold text-brand-1">
+                Kuşlar Hakkında Soru Sor
               </span>
-              <span className="absolute top-[250px] left-10 text-xl font-medium text-brand-4">
+              <span className="absolute top-[220px] left-10 text-xl font-medium text-brand-15">
                 Soğuk kış aylarında sevimli hayvanlarımız için destek
                 bekliyoruz...
               </span>
               <button className="absolute bottom-[80px] left-10 h-[40px] w-[250px] bg-white font-bold opacity-80">
-                Dafa Fazlası...
+                Daha Fazlası...
               </button>
             </div>
           </Slider>
         </div>
       </div>
-      {/* <div className="flex justify-center mb-16">
-        <div className="mt-[80px] grid max-w-[1400px] grid-cols-4 gap-6">
-          {new Array(12).fill().map(() => (
+      {<div className="flex justify-center mb-16 ">
+        <div className="mt-[80px] grid max-w-[1400px] grid-cols-3 gap-10  ">
+          {new Array(3).fill().map(() => ( 
             <PriceInfoCard />
           ))}{" "}
         </div>
-      </div> */}
+      </div>}
     </>
   );
 };

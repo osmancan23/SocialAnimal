@@ -1,18 +1,36 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
+import {  NavLink, useNavigate } from "react-router-dom";
 import { Container } from "../components/Container";
-const Register = () => {
+import {useAuth} from "../components/Context/UseContext"
+import lottie from 'lottie-web';
+import React,{useEffect,useRef} from 'react';
+
+
+  
+function Register() {
+  const container=useRef(null)
+  useEffect(() => {
+    lottie.loadAnimation({
+      container:container.current,
+      renderer:'svg',
+      loop:true,
+      autoplay:true,
+      animationData:require("../lotties/register-cat.json")
+    })
+  }, [])
+
   return (
     <Container>
       <div className="flex flex-row justify-center  gap-x-5 ">
-        <div className="mt-[100px] h-[500px] w-[600px] bg-brand-7"></div>
-        <div className=" mt-[100px] flex w-[800px] flex-col gap-y-5  rounded-lg  p-10 shadow-outlineShadow">
-          <label htmlFor="mail" className="text-[24px] font-medium">
+      <div className='container' ref={container}></div>
+
+      {/**RENKLI CONTAINER KISMI */}
+      <div className=" mt-12 [100px] flex   w-[1300px] flex-col gap-y-5  rounded-lg  p-10 shadow-outlineShadow">          
+      <label htmlFor="mail" className="text-[24px] font-medium">
             Ad Soyad
           </label>
           <input
             type="text"
-            placeholder="Ad Soyad Giriniz"
+            placeholder="Ad-Soyad Giriniz"
             id="name"
             className="h-10 rounded-lg border pl-5 outline-none"
           />

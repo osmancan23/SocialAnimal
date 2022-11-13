@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { Container } from "../components/Container";
 import ForumCard from "../components/Forum/ForumCard";
 import "../index.css";
-import dog from "../images/dog.jpg";
-import cat from "../images/cat.jpg";
+import dog from "../images/kopek.jpg";
+import cat from "../images/kedi.jpg";
 import birds from "../images/birds.jpg";
 import animal from "../images/animal.jpg";
 import CatCommentCard from "../components/Forum/CatCommentCard";
@@ -39,7 +39,7 @@ const Forum = () => {
   return (
     <div>
       <Container>
-        <h2 className="mt-[120px] text-[36px] font-semibold">Konular</h2>
+        <h2 className="mt-20 [120px] text-[36px] font-semibold">Konular</h2>
         <div className="mt-[50px] flex gap-x-10">
           {forumCategory.map((item, index) => (
             <ForumCard
