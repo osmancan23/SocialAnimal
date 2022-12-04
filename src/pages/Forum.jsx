@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import { Container } from "../components/Container";
 import ForumCard from "../components/Forum/ForumCard";
 import "../index.css";
@@ -9,7 +9,11 @@ import animal from "../images/animal.jpg";
 import CatCommentCard from "../components/Forum/CatCommentCard";
 import DogCommentCard from "../components/Forum/DogCommentCard";
 import BirdsCommentCard from "../components/Forum/BirdsCommentCard";
-import AskQouestionModal from "../components/Forum/AskQuestionModal";
+import { RevealItems } from "../components/Animations/RevealAnimation";
+import OtherCard from "../components/Forum/OtherCard";
+import AskQuestionModal from "../components/Forum/AskQuestionModel";
+import { Helmet } from "react-helmet";
+
 
 const Forum = () => {
   const forumCategory = [
@@ -36,38 +40,51 @@ const Forum = () => {
   ];
   const [active, setActive] = useState("Köpekler");
   const [modalIsOpen, setModalIsOpen] = useState(false);
+ 
+
+
+
+ 
   return (
     <div>
+         <Helmet>
+        <title>Socail Animals Forum</title>
+      </Helmet>
       <Container>
-        <h2 className="mt-20 [120px] text-[36px] font-semibold">Konular</h2>
-        <div className="mt-[50px] flex gap-x-10">
-          {forumCategory.map((item, index) => (
-            <ForumCard
-              key={item.id}
-              name={item.name}
-              image={item.image}
-              active={active}
-              setActive={setActive}
+        <RevealItems delay={200}>
+          <h2 className="[120px] mt-20 text-[36px] font-semibold">Konular</h2>
+          <div className="mt-[50px] flex gap-x-10">
+            {forumCategory.map((item, index) => (
+              <ForumCard
+                key={item.id}
+                name={item.name}
+                image={item.image}
+                active={active}
+                setActive={setActive}
+              />
+            ))}
+          </div>
+          <button
+            className="mt-[50px] flex h-[40px] w-[120px] cursor-pointer items-center justify-center rounded-xl bg-brand-3 text-xl text-white outline-none"
+            onClick={() => setModalIsOpen(!modalIsOpen)}
+          >
+            + Soru Sor
+          </button>
+
+          <div className="mt-10 flex flex-col mb-16">
+            {active === "Köpekler" && <DogCommentCard />}
+            {active === "Kediler" && <CatCommentCard />}
+            {active === "Kuşlar" && <BirdsCommentCard />}
+            {active === "Diğerleri" && <OtherCard />}
+
+
+            <AskQuestionModal
+              modalIsOpen={modalIsOpen}
+              setModalIsOpen={setModalIsOpen}
             />
-          ))}
-        </div>
-        <button
-          className="mt-[50px] flex h-[40px] w-[120px] cursor-pointer items-center justify-center rounded-xl bg-brand-3 text-xl text-white outline-none"
-          onClick={() => setModalIsOpen(!modalIsOpen)}
-        >
-          + Soru Sor
-        </button>
-
-        <div className="mt-10 flex flex-col">
-          {active === "Köpekler" && <DogCommentCard />}
-          {active === "Kediler" && <CatCommentCard />}
-          {active === "Kuşlar" && <BirdsCommentCard />}
-
-          <AskQouestionModal
-            modalIsOpen={modalIsOpen}
-            setModalIsOpen={setModalIsOpen}
-          />
-        </div>
+          </div>
+       
+        </RevealItems>
       </Container>
     </div>
   );

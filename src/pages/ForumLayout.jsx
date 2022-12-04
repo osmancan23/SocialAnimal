@@ -2,12 +2,14 @@ import React, { useState } from 'react'
 import { FaBook, FaPeopleArrows, FaUserAlt } from 'react-icons/fa'
 import { GiHamburgerMenu } from 'react-icons/gi'
 import { GrClose } from 'react-icons/gr'
+import { useSelector } from 'react-redux'
 import { NavLink, Outlet } from 'react-router-dom'
 import dogs from "../images/cat.jpg";
 
 
 const ForumLayout = () => {
   const [status, setStatus] = useState(false);
+  const {user} = useSelector(state => state.auth)
 
   return (
     <div>
@@ -37,20 +39,27 @@ const ForumLayout = () => {
             <FaBook className="h-[20px] w-[20px]" />
             <p>Blog</p>
           </NavLink>
-          <NavLink
+          {user ? (
+            <NavLink
+              to="/profile"
+              className="flex flex-col items-center justify-center hover:text-brand-16"
+            >
+              <img
+                src={user.photoURL}
+                className="h-[20px] w-[20px] rounded-[50%]"
+                alt="img"
+              />
+              <p>{user.displayName}</p>
+            </NavLink>
+          ) : (
+            <NavLink
             to="/Auth"
             className="flex flex-col items-center justify-center hover:text-brand-16"
           >
             <FaUserAlt className="h-[20px] w-[20px]" />
             <p>Login</p>
           </NavLink>
-          <NavLink
-            to="/profile"
-            className="flex flex-col items-center justify-center hover:text-brand-16"
-          >
-            <FaUserAlt className="h-[20px] w-[20px]" />
-            <p>Profil</p>
-          </NavLink>
+          )}
         </div>
 
         {status ? (

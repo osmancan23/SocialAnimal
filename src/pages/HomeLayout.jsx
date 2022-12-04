@@ -1,35 +1,33 @@
-
-import React, { useState ,useEffect,useRef} from 'react'
-import { FaBook, FaPeopleArrows, FaUserAlt } from 'react-icons/fa';
-import { GiHamburgerMenu } from 'react-icons/gi';
-import { GrClose } from 'react-icons/gr';
-import { NavLink, Outlet } from 'react-router-dom'
-
-
-import dogs from "../images/cat.jpg";
-import lottie from 'lottie-web';
-
+import React, { useState, useEffect, useRef } from "react";
+import { FaBook, FaPeopleArrows, FaUserAlt } from "react-icons/fa";
+import { GiHamburgerMenu } from "react-icons/gi";
+import { CgProfile } from "react-icons/cg";
+import { GrClose } from "react-icons/gr";
+import { NavLink, Outlet } from "react-router-dom";
+import lottie from "lottie-web";
+import { useSelector } from "react-redux";
 
 const HomeLayout = () => {
   const [status, setStatus] = useState(false);
-  const container=useRef(null)
+  const container = useRef(null);
   useEffect(() => {
     lottie.loadAnimation({
-      container:container.current,
-      renderer:'svg',
-      loop:true,
-      autoplay:true,
+      container: container.current,
+      renderer: "svg",
+      loop: true,
+      autoplay: true,
 
-      animationData:require("../lotties/home.json")
-    })
-  }, [])
+      animationData: require("../lotties/home.json"),
+    });
+  }, []);
+
+  const { user } = useSelector((state) => state.auth);
   return (
     <div>
-          <nav className="flex h-[80px] w-full items-center justify-between bg-[#395144] pl-2 text-white shadow-cardShadow">
-        <div className="md:w-[8%]">
-
+      <nav className="flex h-[80px] w-full items-center justify-between bg-[#395144] pl-2 text-white shadow-cardShadow">
+        <div className="md:w-[80px] h-[80px]">
           <NavLink to="/">
-          <div className='container' ref={container}></div>
+            <div className="container" ref={container}></div>
           </NavLink>
         </div>
 
@@ -48,20 +46,35 @@ const HomeLayout = () => {
             <FaBook className="h-[20px] w-[20px]" />
             <p>Blog</p>
           </NavLink>
-          <NavLink
-            to="/Auth"
-            className="flex flex-col items-center justify-center hover:text-brand-16"
-          >
-            <FaUserAlt className="h-[20px] w-[20px]" />
-            <p>Login</p>
-          </NavLink>
-          <NavLink
-            to="/profile"
-            className="flex flex-col items-center justify-center hover:text-brand-16"
-          >
-            <FaUserAlt className="h-[20px] w-[20px]" />
-            <p>Profil</p>
-          </NavLink>
+
+          {user ? (
+            <NavLink
+              to="/profile"
+              className="flex flex-col items-center justify-center hover:text-brand-16"
+            >
+              {user.photoURL ? (
+                <img
+                  src={user.photoURL}
+                  className="h-[20px] w-[20px] rounded-[50%]"
+                  alt="img"
+                />
+              ) : (
+                <CgProfile className="h-[20px] w-[20px]" />
+              )}
+{
+              <p>{user.displayName ? user.displayName : <p className="text-[#D2001A]">Kullanıcı Adı</p>}</p>
+}
+            
+            </NavLink>
+          ) : (
+            <NavLink
+              to="/Auth"
+              className="flex flex-col items-center justify-center hover:text-brand-16"
+            >
+              <FaUserAlt className="h-[20px] w-[20px]" />
+              <p>Login</p>
+            </NavLink>
+          )}
         </div>
 
         {status ? (

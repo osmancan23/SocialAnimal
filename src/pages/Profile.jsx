@@ -1,71 +1,290 @@
-import {  NavLink, useNavigate } from "react-router-dom";
 import { Container } from "../components/Container";
-import {useAuth} from "../components/Context/UseContext"
-import lottie from 'lottie-web';
-import React,{useEffect,useRef} from 'react';
-import image from "../images/kopek.jpg";
- 
+
+import lottie from "lottie-web";
+import React, { useEffect, useRef, useState } from "react";
+import {
+  getAuth,
+  signOut,
+  updateEmail,
+  updatePassword,
+  updateProfile,
+} from "firebase/auth";
+import { useNavigate } from "react-router-dom";
+import app, { db } from "../firebase";
+import { useDispatch, useSelector } from "react-redux";
+import { logout } from "../store/auth";
+import toast from "react-hot-toast";
+import { collection, onSnapshot } from "firebase/firestore";
+import { Helmet } from "react-helmet";
+
+
 function Profile() {
-  const container=useRef(null)
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const auth = getAuth(app);
+  const Out = () => {
+    signOut(auth)
+      .then(() => {
+        navigate("/Auth", { replace: true });
+        dispatch(logout());
+      })
+      .catch((error) => {
+        // An error happened.
+      });
+  };
+  const { user } = useSelector((state) => state.auth);
+  const [email, setEmail] = useState("");
+  const [displayName, setDisplayName] = useState(user.displayName || "");
+  const [photoURL, setPhotoURL] = useState(user.photoURL || "");
+  const [password, setPassword] = useState("");
+  const container = useRef(null);
   useEffect(() => {
     lottie.loadAnimation({
-      container:container.current,
-      renderer:'svg',
-      loop:true,
-      autoplay:true,
-      animationData:require("../lotties/dogWalking.json")
+      container: container.current,
+      renderer: "svg",
+      loop: true,
+      autoplay: true,
+      animationData: require("../lotties/dogWalking.json"),
+    });
+  }, []);
+
+  useEffect(() => {
+    setEmail(user.email);
+    // setDisplayName(user.displayName);
+  }, [user]);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    updateProfile(auth.currentUser, {
+      displayName: displayName,
+      photoURL: photoURL,
     })
-  }, [])
+      .then(() => {
+        // Profile updated!
+        // ..
+        toast.success("Profil Güncellendi");
+      })
+      .catch((error) => {
+        // An error occurred
+        // ...
+        toast.error("Profil Güncellenemedi");
+      });
+  };
+
+  const handleSubmitEmail = async (e) => {
+    e.preventDefault();
+    updateEmail(auth.currentUser, email)
+      .then(() => {
+        // Email updated!
+        // ...
+        toast.success("Email Güncellendi");
+      })
+      .catch((error) => {
+        // An error occurred
+        // ...
+        toast.error("Email Güncellenemedi");
+      });
+  };
+
+  // const handleVerification = async (e) => {
+  //   e.preventDefault();
+  //   sendEmailVerification(auth.currentUser).then(() => {
+  //     // Email verification sent!
+  //     // ...
+  //     toast.success("Email Doğrulama Gönderildi");
+  //   });
+  // };
+  const users = auth.currentUser;
+
+  const handlePassword = async (e) => {
+    e.preventDefault();
+    updatePassword(users, password).then(() => {
+      // Update successful.
+ setPassword("");
+      toast.success("Şifre Güncellendi");
+    }).catch((error) => {
+      // An error ocurred
+      // ...
+      toast.error("Şifre Güncellenemedi");
+    });
+  };
+
+  const blogRef = collection(db, "users");
+
+
+  const [profile, setProfile] = useState([]);
+  useEffect(() => {
+    return onSnapshot(blogRef, (snapshot) => {
+      setProfile(
+        snapshot.docs.map((doc) => {
+          return { ...doc.data(), id: doc.id };
+        })
+      );
+    });
+  }, []);
+
+  console.log(profile);
+
+  
+
+
+
   return (
     <div>
+        <Helmet>
+        <title>Socail Animals Profile</title>
+      </Helmet>
       <Container>
-        <div className="mt-20 [200px] flex max-w-[1000px] flex-col items-center">
+        <div className="[200px] mt-20 flex max-w-[1000px] flex-col items-center">
           <div className="flex w-full flex-row justify-between">
             <div className="flex h-[350px] w-[350px] flex-col gap-y-5">
-              
-            <div className='container' ref={container}></div>
+              <div className="container" ref={container}></div>
 
-             {/* <p className="text-2xl font-semibold">İsim Soyisim</p>*/}
+              {/* <p className="text-2xl font-semibold">İsim Soyisim</p>*/}
             </div>
-            <div className="flex flex-col gap-y-[51px]" >
-              <div className="flex items-center gap-x-5">
-                <label htmlFor="username" className="text-xl font-semibold">
-                  Ad-Soyad:
-                </label>
-                <input type="text"  placeholder="Ad-Soyad giriniz" id="username" className="border p-2 w-[300px]" />
-              </div>
-              <div className="flex w-full flex-row justify-between">
-                <label htmlFor="email" className="text-xl font-semibold">
-                  E-posta:
-                </label>
-                <input type="email" placeholder="E-posta Adresinizi giriniz" id="email" className="border p-2 w-[300px]" />
-              </div>
-              <div className="flex w-full flex-row justify-between">
-                <label htmlFor="password" className="text-xl font-semibold">
-                  Şifre:
-                </label>
-                <input type="password" placeholder="Şifrenizi giriniz" id="password" className="border p-2 w-[300px]" />
-              </div>
-              <div className="flex w-full flex-row justify-between">
+
+            <div className="flex flex-col gap-y-3">
+              <form className="flex flex-col gap-y-3" onSubmit={handleSubmit}>
+                <div className="flex flex-col gap-y-3">
+                  <label htmlFor="username" className="text-xl font-semibold">
+                    Kullanıcı adı:
+                  </label>
+                  <div className="flex flex-col gap-y-3">
+                    <input
+                      type="text"
+                     
+                      id="username"
+                      value=""
+                      onChange={(e) => setDisplayName(e.target.value)}
+                      className="w-[300px] border p-2"
+                    />
+                  {/*  <button
+                      type="submit"
+                      className="flex h-[20px] w-[80px] items-center justify-center rounded-[20px] bg-brand-9  p-4 text-[12px] font-semibold text-white"
+                    >
+                      Güncelle
+                    </button>*/}
+                  </div>
+                </div>
+              </form>
+              <form className="flex flex-col gap-y-3" onSubmit={handleSubmit}>
+                <div className="flex flex-col gap-y-3">
+                  <label htmlFor="username" className="text-xl font-semibold">
+                    Fotoğraf URL:
+                  </label>
+                  <div className="flex flex-col gap-y-3">
+                    <input
+                      type="text"
+                    
+                      id="username"
+                      value=""
+                      onChange={(e) => setPhotoURL(e.target.value)}
+                      className="w-[300px] border p-2"
+                    />
+                 { /*  <button
+                      type="submit"
+                      className="flex h-[20px] w-[80px] items-center justify-center rounded-[20px] bg-brand-9  p-4 text-[12px] font-semibold text-white"
+                    >
+                      Güncelle
+                    </button>*/}
+                  </div>
+                </div>
+              </form>
+              <form
+                className="flex flex-col gap-y-3"
+                onSubmit={handleSubmitEmail}
+              >
+                <div className="flex flex-col gap-y-3">
+                  <label htmlFor="username" className="text-xl font-semibold">
+                    E-posta güncelle:
+                  </label>
+                  <div className="flex flex-col gap-y-3">
+                    <input
+                      type="email"
+                      id="username"
+                      value=""
+                      onChange={(e) => setEmail(e.currentTarget.value)}
+                      className="w-[300px] border p-2"
+                    />
+                  {/*  <button
+                      type="submit"
+                      className=" flex h-[20px] w-[80px] items-center justify-center rounded-[20px] bg-brand-9  p-4 text-[12px] font-semibold text-white"
+                    >
+                      Güncelle
+                  </button>*/}
+                  </div>
+                </div>
+              </form>
+
+              {/* <form onSubmit={handleVerification}>
+                <div className="flex flex-col gap-y-3">
+                  <label htmlFor="email" v className="text-xl font-semibold">
+                    E-posta onayla:
+                  </label>
+                  <div className="flex flex-col gap-y-3">
+                    <input
+                      type="email"
+                      value={email}
+                      disabled={!email}
+                      placeholder="E-posta Adresinizi giriniz"
+                      id="email"
+                      className="w-[300px] border p-2"
+                    />
+                    <button
+                      className=" flex disabled:opacity-40 h-[20px] w-[120px] items-center justify-center rounded-[20px] bg-brand-9  p-4 text-[12px] font-semibold text-white"
+                      type="submit"
+                      disabled={!user.emailVerified}
+                    >
+                      E-mail onayla
+                    </button>
+                  </div>
+                </div>
+              </form> */}
+              <form onSubmit={handlePassword}>
+                <div className="flex flex-col gap-y-3">
+                  <label htmlFor="password" className="text-xl font-semibold">
+                    Şifre güncelle:
+                  </label>
+                  <input
+                    type="password"
+                    id="password"
+                    value=""
+                    onChange={(e) => setPassword(e.target.value)}
+                    className="w-[300px] border p-2"
+                  />
+                { /* <button
+                    className=" flex disabled:opacity-40 h-[20px] w-[120px] items-center justify-center rounded-[20px] bg-brand-9  p-4 text-[12px] font-semibold text-white"
+                    type="submit"
+                    disabled={!password}
+                  >
+                    Şifre Değiştir
+                  </button>*/}
+                </div>
+              </form>
+
+              <div className="flex flex-col gap-y-3">
                 <label htmlFor="password" className="text- xl font-semibold">
-                  Bağış miktarı: 
+                  Bağış miktarı:
                 </label>
-                <input type="password" placeholder="Bağış miktarını giriniz" id="password" className="border p-2 w-[300px]" />
+                <input
+                  type="password"
+                  id="password"
+                  className="w-[300px] border p-2"
+                />
               </div>
-              
-              {/* <div className="flex w-full flex-row justify-between">
-                <label htmlFor="bio" className="text-xl font-semibold">
-                 Bio:
-                </label>
-                <textarea id="bio" name="w3review" rows="4" cols="38" className="border"></textarea>
-               </div>*/}
-              <button className=" mb-20 w-[200px] h-[40px] rounded-[300px] flex justify-center items-center text-lg bg-brand-9 text-white font-semibold">Çıkış Yap</button>
+              <button
+                className=" mb-20 flex h-[40px] w-[200px] items-center justify-center rounded-[300px] bg-brand-9 text-lg font-semibold text-white"
+                onClick={Out}
+              >
+                Çıkış Yap
+              </button>
             </div>
           </div>
         </div>
+     
       </Container>
     </div>
   );
-};
+}
 
 export default Profile;
