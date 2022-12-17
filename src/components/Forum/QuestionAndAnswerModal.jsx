@@ -1,22 +1,16 @@
-import React, { useState } from "react";
-import Modal from "react-modal";
+import { addDoc, collection, onSnapshot } from "firebase/firestore";
+import React, { useEffect, useState } from "react";
 import { MdOutlineCancel } from "react-icons/md";
-import { addDoc, collection } from "firebase/firestore";
+import Modal from "react-modal";
 import { db } from "../../firebase";
 
-const AskQuestionModal = ({ modalIsOpen, setModalIsOpen, className }) => {
+const QuestionAndAnswerModal = ({ modalIsOpen, setModalIsOpen }) => {
+  const [description, setDescription] = useState("");
+  const [userName, setUserName] = useState("");
+  const [selected, setSelected] = useState("Köpekler");
+  var modalStyles = { overlay: { zIndex: 50 } };
   const closeModal = () => {
     setModalIsOpen(false);
-  };
-  var modalStyles = { overlay: { zIndex: 50 } };
-
-  const [selected, setSelected] = useState("Köpekler");
-  const [question, setQuestion] = useState("");
-  const [description, setDescription] = useState("");
-  const [userName, setUserName] = useState("")
-
-  const handleChange = (e) => {
-    setSelected(e.target.value);
   };
   const handleClose = () => {
     setModalIsOpen(false);
@@ -26,19 +20,18 @@ const AskQuestionModal = ({ modalIsOpen, setModalIsOpen, className }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     addDoc(forumRef, {
+      Description: description,
+      userName: userName,
       subject: selected,
-        questionDescription: description,
-        questionTitle: question,
-       
     });
     setModalIsOpen(false);
-    setTimeout(() => {
-      window.location.reload();
-    }
-    , 1000);
   };
+  const handleChange = (e) => {
+    setSelected(e.target.value);
+  };
+
+ 
 
   return (
     <Modal
@@ -46,9 +39,8 @@ const AskQuestionModal = ({ modalIsOpen, setModalIsOpen, className }) => {
       onRequestClose={closeModal}
       style={modalStyles}
       ariaHideApp={false}
-      className={`relative  z-50 h-[596px] w-[913px] rounded-[16px] bg-white shadow-[0_0_10px_0_rgba(55,164,146,0.5)] focus:outline-none ${
-        className ? className : ""
-      }`}
+      className={`relative  z-50 h-[696px] w-[913px] rounded-[16px] bg-white shadow-[0_0_10px_0_rgba(55,164,146,0.5)] focus:outline-none 
+   `}
       overlayClassName="fixed top-0 left-0 w-full h-full flex justify-center items-center bg-[#999999] bg-opacity-50"
     >
       <MdOutlineCancel
@@ -56,8 +48,18 @@ const AskQuestionModal = ({ modalIsOpen, setModalIsOpen, className }) => {
         className="absolute top-12 right-12 cursor-pointer text-brand-3"
         onClick={handleClose}
       />
-      <h1 className=" text-center text-4xl ">Soru Sor</h1>
-   
+      <h1 className=" text-center text-4xl ">Cevapla</h1>
+      <div className="ml-[30px] mt-[50px] flex flex-col gap-y-3">
+        <label htmlFor="select" className="text-lg font-semibold">
+          Kullanıcı Adı
+        </label>
+        <input
+          type="text"
+          value={userName}
+          onChange={(e) => setUserName(e.target.value)}
+          className="h-[50px] w-[400px] rounded-lg border p-3 text-lg outline-none"
+        />
+      </div>
       <div className="ml-[30px] mt-[15px] flex flex-col gap-y-3">
         <label htmlFor="select" className="text-lg font-semibold">
           Konu
@@ -76,24 +78,15 @@ const AskQuestionModal = ({ modalIsOpen, setModalIsOpen, className }) => {
           <option value="Kuşlar" className="mt-[20px] text-lg">
             Kuşlar
           </option>
-         
+          <option value="Diğerleri" className="mt-[20px] text-lg">
+            Diğerleri
+          </option>
         </select>
       </div>
-      <div className="ml-[30px] mt-[15px] flex flex-col gap-y-3">
-        <label htmlFor="select" className="text-xl font-semibold">
-          Cinsi
-        </label>
-        <input
-          type="text"
-          value={question}
-          onChange={(e) => setQuestion(e.target.value)}
-          className="h-[50px] w-[400px] rounded-lg border p-3 text-lg outline-none"
-        />
-      </div>
-  
+
       <div className="ml-[30px] mt-[15px] flex flex-col gap-y-3">
         <label htmlFor="select" className="text-lg font-semibold">
-          Soru
+          Cevap
         </label>
         <textarea
           type="text"
@@ -120,4 +113,4 @@ const AskQuestionModal = ({ modalIsOpen, setModalIsOpen, className }) => {
   );
 };
 
-export default AskQuestionModal;
+export default QuestionAndAnswerModal;

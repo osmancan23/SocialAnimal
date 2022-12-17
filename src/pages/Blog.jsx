@@ -25,12 +25,15 @@ const Blog = () => {
 
   return (
     <div>
+
       <Helmet>
         <title>Socail Animals Blog</title>
       </Helmet>
       <RevealItems delay={200}>
         <div className="mt-20 flex justify-center">
-          <div className="mb-10 flex flex-row gap-x-5 px-5 lg-max:flex-col lg-max:gap-y-5">
+          <div className="mb-10 flex flex-row gap-x-5 px-5 lg-max:flex-col lg-max:gap-y-5 mt-10">
+         
+            
             {blogs.map((blog) => (
               <div
                 className="flex max-w-[400px] flex-col  gap-y-5  rounded-lg bg-[#F0EBCE] p-10 shadow-outlineShadow"

@@ -6,6 +6,8 @@ import { GrClose } from "react-icons/gr";
 import { NavLink, Outlet } from "react-router-dom";
 import lottie from "lottie-web";
 import { useSelector } from "react-redux";
+import cat from "../images/cat.jpg";
+
 
 const HomeLayout = () => {
   const [status, setStatus] = useState(false);
@@ -24,10 +26,11 @@ const HomeLayout = () => {
   const { user } = useSelector((state) => state.auth);
   return (
     <div>
-      <nav className="flex h-[80px] w-full items-center justify-between bg-[#395144] pl-2 text-white shadow-cardShadow">
+      <nav className="flex h-[80px] w-full items-center justify-between blur-effect fixed top-0 z-50 pl-2 text-white">
         <div className="md:w-[80px] h-[80px]">
           <NavLink to="/">
-            <div className="container" ref={container}></div>
+          <div className="container w-[80px] h-[80px]" ref={container}></div>
+     
           </NavLink>
         </div>
 
@@ -36,15 +39,15 @@ const HomeLayout = () => {
             to="/forum"
             className="flex flex-col items-center justify-center hover:text-brand-16"
           >
-            <FaPeopleArrows className="h-[20px] w-[20px]" />
-            <p>Forum</p>
+            <FaPeopleArrows className="h-[20px] w-[20px] text-[#C58940]" />
+            <p className="text-[#C58940]">Forum</p>
           </NavLink>
           <NavLink
             to="/blog"
             className=" flex flex-col items-center justify-center hover:text-brand-16"
           >
-            <FaBook className="h-[20px] w-[20px]" />
-            <p>Blog</p>
+            <FaBook className="h-[20px] w-[20px] text-[#C58940]" />
+            <p className="text-[#C58940]">Blog</p>
           </NavLink>
 
           {user ? (
@@ -59,10 +62,10 @@ const HomeLayout = () => {
                   alt="img"
                 />
               ) : (
-                <CgProfile className="h-[20px] w-[20px]" />
+                <CgProfile className="h-[20px] w-[20px] text-[#C58940]"/>
               )}
 {
-              <p>{user.displayName ? user.displayName : <p className="text-[#D2001A]">Kullanıcı Adı</p>}</p>
+              <p className="text-[#C58940]">{user.displayName ? user.displayName : <p className="text-[#D2001A]">Kullanıcı Adı</p>}</p>
 }
             
             </NavLink>
@@ -71,8 +74,8 @@ const HomeLayout = () => {
               to="/Auth"
               className="flex flex-col items-center justify-center hover:text-brand-16"
             >
-              <FaUserAlt className="h-[20px] w-[20px]" />
-              <p>Login</p>
+              <FaUserAlt className="h-[20px] w-[20px] text-[#C58940]"/>
+              <p className="text-[#C58940]">Login</p>
             </NavLink>
           )}
         </div>

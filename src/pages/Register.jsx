@@ -48,11 +48,11 @@ function Register() {
         <title>Socail Animals Kayıt</title>
       </Helmet>
       <RevealItems delay={300}>
-        <div className="flex flex-row justify-center  gap-x-5 ">
-          <div className="container" ref={container}></div>
+        <div className="flex flex-row justify-center mt-32 gap-x-5 ">
+          <div className="container w-[400px] h-[400px]" ref={container}></div>
 
           {/**RENKLI CONTAINER KISMI */}
-          <div className=" [100px] mt-12 flex   w-[1300px] flex-col gap-y-5  rounded-lg  p-10 shadow-outlineShadow">
+          <div className=" mt-12 flex w-[500px]  flex-col gap-y-5  rounded-lg  p-10 shadow-outlineShadow">
             <label htmlFor="mail" className="text-[24px] font-medium">
               E-mail{" "}
             </label>

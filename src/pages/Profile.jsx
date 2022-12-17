@@ -131,14 +131,19 @@ function Profile() {
 
   return (
     <div>
+
         <Helmet>
         <title>Socail Animals Profile</title>
       </Helmet>
       <Container>
-        <div className="[200px] mt-20 flex max-w-[1000px] flex-col items-center">
-          <div className="flex w-full flex-row justify-between">
+        <div className=" mt-20 flex max-w-[1000px] flex-col items-center">
+          <div className="flex w-full mt-20 flex-row justify-between">
             <div className="flex h-[350px] w-[350px] flex-col gap-y-5">
-              <div className="container" ref={container}></div>
+              {user.photoURL ? (
+             <img src={user.photoURL} className="profile w-full h-full rounded-lg" alt="profile"/>
+              ) : (
+                <div className="w-full h-full rouned-lg bg-slate-500 "/>)
+              }
 
               {/* <p className="text-2xl font-semibold">İsim Soyisim</p>*/}
             </div>
@@ -152,18 +157,18 @@ function Profile() {
                   <div className="flex flex-col gap-y-3">
                     <input
                       type="text"
-                     
+                      placeholder="fotoğrafınızı değiştirmek için tıklayın"
                       id="username"
-                      value=""
+                      value={displayName}
                       onChange={(e) => setDisplayName(e.target.value)}
                       className="w-[300px] border p-2"
                     />
-                  {/*  <button
+                    <button
                       type="submit"
-                      className="flex h-[20px] w-[80px] items-center justify-center rounded-[20px] bg-brand-9  p-4 text-[12px] font-semibold text-white"
+                      className="flex h-[20px] w-[80px] items-center justify-center rounded-[20px] bg-[#C58940]  p-4 text-[12px] font-semibold text-white"
                     >
                       Güncelle
-                    </button>*/}
+                    </button>
                   </div>
                 </div>
               </form>
@@ -175,18 +180,18 @@ function Profile() {
                   <div className="flex flex-col gap-y-3">
                     <input
                       type="text"
-                    
+                      placeholder="fotoğrafınızı değiştirmek için tıklayın"
                       id="username"
-                      value=""
+                      value={photoURL}
                       onChange={(e) => setPhotoURL(e.target.value)}
                       className="w-[300px] border p-2"
                     />
-                 { /*  <button
+                    <button
                       type="submit"
-                      className="flex h-[20px] w-[80px] items-center justify-center rounded-[20px] bg-brand-9  p-4 text-[12px] font-semibold text-white"
+                      className="flex h-[20px] w-[80px] items-center justify-center rounded-[20px] bg-[#C58940]  p-4 text-[12px] font-semibold text-white"
                     >
                       Güncelle
-                    </button>*/}
+                    </button>
                   </div>
                 </div>
               </form>
@@ -201,45 +206,21 @@ function Profile() {
                   <div className="flex flex-col gap-y-3">
                     <input
                       type="email"
+                      placeholder="email adresinizi değiştirmek için tıklayın"
                       id="username"
-                      value=""
+                      value={email}
                       onChange={(e) => setEmail(e.currentTarget.value)}
                       className="w-[300px] border p-2"
                     />
-                  {/*  <button
+                    <button
                       type="submit"
-                      className=" flex h-[20px] w-[80px] items-center justify-center rounded-[20px] bg-brand-9  p-4 text-[12px] font-semibold text-white"
+                      className=" flex h-[20px] w-[80px] items-center justify-center rounded-[20px] bg-[#C58940]   p-4 text-[12px] font-semibold text-white"
                     >
                       Güncelle
-                  </button>*/}
-                  </div>
-                </div>
-              </form>
-
-              {/* <form onSubmit={handleVerification}>
-                <div className="flex flex-col gap-y-3">
-                  <label htmlFor="email" v className="text-xl font-semibold">
-                    E-posta onayla:
-                  </label>
-                  <div className="flex flex-col gap-y-3">
-                    <input
-                      type="email"
-                      value={email}
-                      disabled={!email}
-                      placeholder="E-posta Adresinizi giriniz"
-                      id="email"
-                      className="w-[300px] border p-2"
-                    />
-                    <button
-                      className=" flex disabled:opacity-40 h-[20px] w-[120px] items-center justify-center rounded-[20px] bg-brand-9  p-4 text-[12px] font-semibold text-white"
-                      type="submit"
-                      disabled={!user.emailVerified}
-                    >
-                      E-mail onayla
                     </button>
                   </div>
                 </div>
-              </form> */}
+              </form>
               <form onSubmit={handlePassword}>
                 <div className="flex flex-col gap-y-3">
                   <label htmlFor="password" className="text-xl font-semibold">
@@ -247,33 +228,23 @@ function Profile() {
                   </label>
                   <input
                     type="password"
+                    placeholder="Şifrenizi giriniz"
                     id="password"
-                    value=""
+                    value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     className="w-[300px] border p-2"
                   />
-                { /* <button
-                    className=" flex disabled:opacity-40 h-[20px] w-[120px] items-center justify-center rounded-[20px] bg-brand-9  p-4 text-[12px] font-semibold text-white"
+                  <button
+                    className=" flex disabled:opacity-40 h-[20px] w-[120px] items-center justify-center rounded-[20px] bg-[#C58940]   p-4 text-[12px] font-semibold text-white"
                     type="submit"
                     disabled={!password}
                   >
                     Şifre Değiştir
-                  </button>*/}
+                  </button>
                 </div>
               </form>
-
-              <div className="flex flex-col gap-y-3">
-                <label htmlFor="password" className="text- xl font-semibold">
-                  Bağış miktarı:
-                </label>
-                <input
-                  type="password"
-                  id="password"
-                  className="w-[300px] border p-2"
-                />
-              </div>
               <button
-                className=" mb-20 flex h-[40px] w-[200px] items-center justify-center rounded-[300px] bg-brand-9 text-lg font-semibold text-white"
+                className=" mb-20 flex h-[40px] w-[200px] items-center justify-center rounded-[300px] bg-[#C58940]  text-lg font-semibold text-white"
                 onClick={Out}
               >
                 Çıkış Yap

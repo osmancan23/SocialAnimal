@@ -1,12 +1,19 @@
 import { collection, onSnapshot } from "firebase/firestore";
 import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { db } from "../../firebase";
+import { option } from "../../store/forum";
 
 const BirdsCommentCard = () => {
+  const dispatch = useDispatch();
+
+
   const navigate = useNavigate();
   const handleRoute = () => {
     navigate("/Forum/ForumDetail");
+    dispatch(option("Kuşlar"))
+
   };
 
   const forumRef = collection(db, "forums");
@@ -22,8 +29,7 @@ const BirdsCommentCard = () => {
     });
   }, []);
 
-  console.log(forum);
-
+const { user } = useSelector((state) => state.auth);
   return (
     <>
       {forum.map((item) => {
@@ -34,10 +40,11 @@ const BirdsCommentCard = () => {
               key={item.id}
               onClick={handleRoute}
             >
-              <div className="h-[80px] w-[80px] rounded-[50%] bg-slate-500" />
+             {user.photoURL ? ( <img src={user.photoURL} alt="profile"  className="h-[80px] w-[80px] rounded-[50%]"/>):(<div className="h-[80px] w-[80px] rounded-[50%] bg-slate-500" />)}
               <div className="mt-5 flex flex-col">
                 <div className="flex gap-x-10">
-                  <p className="font-medium">OSMANCAN AKAGÜNDÜZ</p>
+                <p className="font-medium">{user.displayName}</p>
+
                   <div className="flex gap-x-10">
                     <p className="font-medium">
                       Cinsi :{" "}
