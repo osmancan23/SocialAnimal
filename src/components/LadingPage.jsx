@@ -8,19 +8,12 @@ const LadingPage = () => {
     <div className="relative mt-[180px] flex flex-row items-center mx-24">
       <div className="flex w-[350px] flex-col bg-[#C58940] p-8 rounded-lg">
         <h1 className="text-center   font-semibold">
-          Soğuk kış aylarınde desteğinize ihyacımız var!
+        MİSYONUMUZ
         </h1>
         <p className="text-justify text-sm">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam dolores
-          numquam repellat rerum minima ipsum itaque reprehenderit? Maiores
-          nihil, qui molestias vitae minus eius voluptas atque ea labore
-          voluptatibus aut?
-        </p>
+        Hayvanlarla ilgili forum sitemiz, insanların hayvanlar hakkında daha fazla bilgi edinmelerine ve hayvanlarla ilgili konuları tartışmalarına yardımcı olmak amacıyla kurulmuştur. Biz, hayvanlar hakkında daha fazla bilinç oluşturulmasına ve insanlar arasında hayvanlar hakkında daha fazla bilgi paylaşılmasına yardımcı olmak için çalışıyoruz.        </p>
         <p className="text-justify text-sm">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam dolores
-          numquam repellat rerum minima ipsum itaque reprehenderit? Maiores
-          nihil, qui molestias vitae minus eius voluptas atque ea labore
-          voluptatibus aut?
+          
         </p>
       </div>
 
@@ -33,19 +26,12 @@ const LadingPage = () => {
       </FloatingCard>
       <div className="flex w-[350px] flex-col bg-[#C58940] p-8 rounded-lg">
         <h1 className="text-center   font-semibold">
-          Soğuk kış aylarınde desteğinize ihyacımız var!
+          VİZYONUMUZ
         </h1>
         <p className="text-justify text-sm">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam dolores
-          numquam repellat rerum minima ipsum itaque reprehenderit? Maiores
-          nihil, qui molestias vitae minus eius voluptas atque ea labore
-          voluptatibus aut?
-        </p>
+        Gelecekte, hayvanlar hakkında daha fazla bilinç oluşturulmasına yönelik bir platform olmak vizyonumuzdur. Biz, insanların hayvanlar hakkında daha fazla bilgi edinmelerine ve hayvanlarla ilgili konuları tartışmalarına yardımcı olmak amacıyla çalışmaya devam edeceğiz. Ayrıca, hayvanlar hakkında bilgi paylaşımını arttırarak insanlar arasında hayvanlar hakkında daha fazla bilinç oluşturmayı hedefliyoruz.        </p>
         <p className="text-justify text-sm">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam dolores
-          numquam repellat rerum minima ipsum itaque reprehenderit? Maiores
-          nihil, qui molestias vitae minus eius voluptas atque ea labore
-          voluptatibus aut?
+         
         </p>
       </div>
     </div>

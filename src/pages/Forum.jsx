@@ -2,9 +2,9 @@ import React, {useState} from "react";
 import { Container } from "../components/Container";
 import ForumCard from "../components/Forum/ForumCard";
 import "../index.css";
-import dog from "../images/dog.jpg";
-import cat from "../images/kedi.jpg";
-import birds from "../images/birds.jpg";
+import dog from "../images/köpek.png";
+import cat from "../images/kedi.png";
+import birds from "../images/papagan.png";
 import animal from "../images/animal.jpg";
 import CatCommentCard from "../components/Forum/CatCommentCard";
 import DogCommentCard from "../components/Forum/DogCommentCard";
@@ -20,21 +20,21 @@ const Forum = () => {
   const forumCategory = [
     {
       id: 1,
-      name: "Köpekler",
+      name: "KÖPEK",
       image: dog,
     },
     {
       id: 2,
-      name: "Kediler",
+      name: "KEDİ",
       image: cat,
     },
     {
       id: 3,
-      name: "Kuşlar",
+      name: "KUŞ",
       image: birds,
     },
   ];
-  const [active, setActive] = useState("Köpekler");
+  const [active, setActive] = useState("KÖPEK");
   const [modalIsOpen, setModalIsOpen] = useState(false);
  
 
@@ -68,9 +68,9 @@ const Forum = () => {
           </button>
 
           <div className="mt-10 flex flex-col mb-16">
-            {active === "Köpekler" && <DogCommentCard active={active}/>}
-            {active === "Kediler" && <CatCommentCard />}
-            {active === "Kuşlar" && <BirdsCommentCard />}
+            {active === "KÖPEK" && <DogCommentCard active={active}/>}
+            {active === "KEDİ" && <CatCommentCard />}
+            {active === "KUŞ" && <BirdsCommentCard />}
             
 
 

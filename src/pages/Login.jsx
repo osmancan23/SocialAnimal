@@ -64,7 +64,7 @@ function Login() {
         <div className="container w-[500px] h-[500px]" ref={container}></div>
 
         <div className=" [100px] max- mt-12 flex w-[500px] flex-col gap-y-5  rounded-lg  p-10 shadow-outlineShadow">
-          <h1 className="text-center text-[#C58940] text-2xl font-semibold">Sosyal Hayvan Dayanışması</h1>
+          <h1 className="text-center text-[#C58940] text-2xl font-semibold">SOCIAL ANIMALS</h1>
           <label htmlFor="mail" className="mt-[50px] text-[24px] font-medium">
             E-mail{" "}
           </label>

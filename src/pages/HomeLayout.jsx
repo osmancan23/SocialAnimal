@@ -6,7 +6,7 @@ import { GrClose } from "react-icons/gr";
 import { NavLink, Outlet } from "react-router-dom";
 import lottie from "lottie-web";
 import { useSelector } from "react-redux";
-import cat from "../images/cat.jpg";
+import cat from "../images/kedi.png";
 
 
 const HomeLayout = () => {

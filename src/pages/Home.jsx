@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import PriceInfoCard from "../components/PriceInfoCard";
 import { Helmet } from "react-helmet";
 import LadingPage from "../components/LadingPage";
-import dog from "../images/dog.jpg";
-import bird from "../images/birds.jpg";
-import cat from "../images/cat.jpg";
+import dog from "../images/köpek.png";
+import bird from "../images/papagan.png";
+import cat from "../images/kedi.png";
 import { RevealItems } from "../components/Animations/RevealAnimation";
 
 import DonationPopup from "../components/Forum/DonationPopup"
