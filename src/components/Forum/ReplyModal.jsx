@@ -3,6 +3,7 @@ import Modal from "react-modal";
 import {MdOutlineCancel} from "react-icons/md"
 import { addDoc, collection } from "firebase/firestore";
 import { db } from "../../firebase";
+import { useSelector } from "react-redux";
 
 const ReplyModal = ({ modalIsOpen, setModalIsOpen, className }) => {
   const [description, setDescription] = useState("");
@@ -17,10 +18,13 @@ const ReplyModal = ({ modalIsOpen, setModalIsOpen, className }) => {
   };
 
   const forumRef = collection(db, "forumdetails");
+  const { user } = useSelector((state) => state.auth);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     addDoc(forumRef, {
+      user:user.displayName,
+      image:user.photoURL,
       Description: description,
       subject: selected,
     });

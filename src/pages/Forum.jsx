@@ -5,15 +5,12 @@ import "../index.css";
 import dog from "../images/dog.jpg";
 import cat from "../images/kedi.jpg";
 import birds from "../images/birds.jpg";
-import animal from "../images/animal.jpg";
 import CatCommentCard from "../components/Forum/CatCommentCard";
 import DogCommentCard from "../components/Forum/DogCommentCard";
 import BirdsCommentCard from "../components/Forum/BirdsCommentCard";
 import { RevealItems } from "../components/Animations/RevealAnimation";
-import OtherCard from "../components/Forum/OtherCard";
 import AskQuestionModal from "../components/Forum/AskQuestionModel";
 import { Helmet } from "react-helmet";
-import { useSelector } from "react-redux";
 
 
 const Forum = () => {

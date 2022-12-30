@@ -21,7 +21,6 @@ const Blog = () => {
     });
   }, []);
 
-  console.log(blogs);
 
   return (
     <div>

@@ -123,7 +123,6 @@ function Profile() {
     });
   }, []);
 
-  console.log(profile);
 
   
 
