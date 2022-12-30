@@ -53,7 +53,7 @@ function Login() {
   return (
     <Container>
        <Helmet>
-        <title>Socail Animals Giriş</title>
+        <title>Social Animals Giriş</title>
       </Helmet>
       <RevealItems delay={300}>
       <div className="flex flex-row justify-center items-center mt-28  gap-x-5 "

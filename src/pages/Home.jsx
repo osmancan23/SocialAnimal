@@ -18,7 +18,7 @@ const Home = () => {
   return (
     <>
       <Helmet>
-        <title>Socail Animals</title>
+        <title>Social Animals</title>
       </Helmet>
       <RevealItems>
         <LadingPage />

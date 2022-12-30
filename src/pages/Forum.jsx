@@ -41,7 +41,7 @@ const Forum = () => {
   return (
     <div>
          <Helmet>
-        <title>Socail Animals Forum</title>
+        <title>Social Animals Forum</title>
       </Helmet>
       <Container>
         <RevealItems delay={200}>

@@ -26,7 +26,7 @@ const Blog = () => {
     <div>
 
       <Helmet>
-        <title>Socail Animals Blog</title>
+        <title>Social Animals Blog</title>
       </Helmet>
       <RevealItems delay={200}>
         <div className="mt-20 flex justify-center">
