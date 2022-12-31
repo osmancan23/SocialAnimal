@@ -124,6 +124,7 @@ function Profile() {
   }, []);
 
 
+
   
 
 
@@ -132,7 +133,9 @@ function Profile() {
     <div>
 
         <Helmet>
+
         <title>Social Animals Profile</title>
+
       </Helmet>
       <Container>
         <div className=" mt-20 flex max-w-[1000px] flex-col items-center">
@@ -236,7 +239,7 @@ function Profile() {
                   <button
                     className=" flex disabled:opacity-40 h-[20px] w-[120px] items-center justify-center rounded-[20px] bg-[#C58940]   p-4 text-[12px] font-semibold text-white"
                     type="submit"
-                  
+
                     disabled={!password}
                   >
                     Şifre Değiştir
