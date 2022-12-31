@@ -1,85 +1,54 @@
-import React from 'react'
-import { Container } from "../components/Container";
-import ForumCard from "../components/Forum/ForumCard";
+import { collection, onSnapshot } from "firebase/firestore";
+import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import { RevealItems } from "../components/Animations/RevealAnimation";
+import { db } from "../firebase";
+import { Helmet } from "react-helmet";
 import "../index.css";
-import dog from "../images/kopek.jpg";
-import cat from "../images/kedi.jpg";
-import birds from "../images/birds.jpg";
-import animal from "../images/animal.jpg";
-import CatCommentCard from "../components/Forum/CatCommentCard";
-import DogCommentCard from "../components/Forum/DogCommentCard";
-import BirdsCommentCard from "../components/Forum/BirdsCommentCard";
-
 
 const Blog = () => {
+  const blogRef = collection(db, "blogs");
+  const { user } = useSelector((state) => state.auth);
+
+  const [blogs, setBlogs] = useState([]);
+  useEffect(() => {
+    return onSnapshot(blogRef, (snapshot) => {
+      setBlogs(
+        snapshot.docs.map((doc) => {
+          return { ...doc.data(), id: doc.id };
+        })
+      );
+    });
+  }, []);
+
+  console.log(blogs);
+
   return (
     <div>
-    <div className="flex justify-center mt-20">
-      <div className="flex flex-row gap-x-5 px-5 lg-max:flex-col lg-max:gap-y-5 ">
-        <div className="flex max-w-[400px] flex-col  gap-y-5  shadow-outlineShadow p-10 bg-[#F0EBCE] rounded-lg">
-          <p  className="text-center text-[30px] font-medium">Visyonumuz</p>
-          <p>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nam nisi
-            voluptatem iusto quod quaerat nobis placeat rem reprehenderit
-            itaque, magnam eveniet ut vel deleniti alias officiis veritatis
-            possimus assumenda similique. Praesentium nesciunt quisquam libero
-            fugiat nemo veniam, provident rerum voluptatum exercitationem ad,
-            deleniti error ipsum rem architecto facilis ratione facere?
-          </p>
-          <p>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nam nisi
-            voluptatem iusto quod quaerat nobis placeat rem reprehenderit
-            itaque, magnam eveniet ut vel deleniti alias officiis veritatis
-            possimus assumenda similique. Praesentium nesciunt quisquam libero
-            fugiat nemo veniam, provident rerum voluptatum exercitationem ad,
-            deleniti error ipsum rem architecto facilis ratione facere?
-          </p>
+
+      <Helmet>
+        <title>Socail Animals Blog</title>
+      </Helmet>
+      <RevealItems delay={200}>
+        <div className="mt-20 flex justify-center">
+          <div className="mb-10 flex flex-row gap-x-5 px-5 lg-max:flex-col lg-max:gap-y-5 mt-10">
+         
+            
+            {blogs.map((blog) => (
+              <div
+                className="flex max-w-[400px] flex-col  gap-y-5  rounded-lg bg-[#F0EBCE] p-10 shadow-outlineShadow"
+                key={blog.number}
+              >
+                <p className="text-center text-[30px] font-medium">
+                  {blog.title}
+                </p>
+                <p>{blog.description}</p>
+              </div>
+            ))}
+          </div>
         </div>
-        <div className="flex max-w-[400px] flex-col  gap-y-5  shadow-outlineShadow p-10 bg-[#F0EBCE] rounded-lg">
-          <p className="text-center text-[30px] font-medium">Hayvan Sevgisi</p>
-          <p>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nam nisi
-            voluptatem iusto quod quaerat nobis placeat rem reprehenderit
-            itaque, magnam eveniet ut vel deleniti alias officiis veritatis
-            possimus assumenda similique. Praesentium nesciunt quisquam libero
-            fugiat nemo veniam, provident rerum voluptatum exercitationem ad,
-            deleniti error ipsum rem architecto facilis ratione facere?
-          </p>
-          <p>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nam nisi
-            voluptatem iusto quod quaerat nobis placeat rem reprehenderit
-            itaque, magnam eveniet ut vel deleniti alias officiis veritatis
-            possimus assumenda similique. Praesentium nesciunt quisquam libero
-            fugiat nemo veniam, provident rerum voluptatum exercitationem ad,
-            deleniti error ipsum rem architecto facilis ratione facere?
-          </p>
-        </div>
-        <div className="flex max-w-[400px] flex-col  gap-y-5  shadow-outlineShadow p-10 bg-[#F0EBCE] rounded-lg">
-          <p className="text-center text-[30px] font-medium">Misyonumuz</p>
-          <p>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nam nisi
-            voluptatem iusto quod quaerat nobis placeat rem reprehenderit
-            itaque, magnam eveniet ut vel deleniti alias officiis veritatis
-            possimus assumenda similique. Praesentium nesciunt quisquam libero
-            fugiat nemo veniam, provident rerum voluptatum exercitationem ad,
-            deleniti error ipsum rem architecto facilis ratione facere?
-          </p>
-          <p>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nam nisi
-            voluptatem iusto quod quaerat nobis placeat rem reprehenderit
-            itaque, magnam eveniet ut vel deleniti alias officiis veritatis
-            possimus assumenda similique. Praesentium nesciunt quisquam libero
-            fugiat nemo veniam, provident rerum voluptatum exercitationem ad,
-            deleniti error ipsum rem architecto facilis ratione facere?
-          </p>
-        </div>
-        
-      </div>
+      </RevealItems>
     </div>
-    
-  </div>
-  )
-}
-
-export default Blog
-
+  );
+};
+export default Blog;

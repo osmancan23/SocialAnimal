@@ -1,11 +1,14 @@
-import { Navigate } from 'react-router-dom';
-import { useAuth } from './Context/UseContext';
+import { useSelector } from "react-redux"
+import { Navigate } from "react-router-dom"
 
-export const PrivateRoute = ({ children }) => {
-  const{ user } = useAuth();
-if(!user) {
-  <Navigate to="/login" />
-}
+export  const PrivateRoute = ({children}) => {
+   const {user} = useSelector(state => state.auth)
 
-return children;
+  if(!user){
+    return <Navigate to="/Auth" />
+  }
+
+return children
+
+
 }
