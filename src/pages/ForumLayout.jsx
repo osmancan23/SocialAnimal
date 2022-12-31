@@ -5,7 +5,9 @@ import { GiHamburgerMenu } from 'react-icons/gi'
 import { GrClose } from 'react-icons/gr'
 import { useSelector } from 'react-redux'
 import { NavLink, Outlet } from 'react-router-dom'
+
 import cat from "../images/kedi.png";
+
 
 
 

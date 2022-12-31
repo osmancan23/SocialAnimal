@@ -15,7 +15,9 @@ function Login() {
   const auth = getAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
   const [title, setTitle] = useState("");
+
   const Login = () => {
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
@@ -54,7 +56,9 @@ function Login() {
   return (
     <Container>
        <Helmet>
-        <title>Socail Animals Giriş</title>
+
+        <title>Social Animals Giriş</title>
+
       </Helmet>
       <RevealItems delay={300}>
       <div className="flex flex-row justify-center items-center mt-28  gap-x-5 "
@@ -64,7 +68,9 @@ function Login() {
         <div className="container w-[500px] h-[500px]" ref={container}></div>
 
         <div className=" [100px] max- mt-12 flex w-[500px] flex-col gap-y-5  rounded-lg  p-10 shadow-outlineShadow">
+
           <h1 className="text-center text-[#C58940] text-2xl font-semibold">SOCIAL ANIMALS</h1>
+
           <label htmlFor="mail" className="mt-[50px] text-[24px] font-medium">
             E-mail{" "}
           </label>

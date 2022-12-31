@@ -40,10 +40,12 @@ const { user } = useSelector((state) => state.auth);
               key={item.id}
               onClick={handleRoute}
             >
-             {user.photoURL ? ( <img src={user.photoURL} alt="profile"  className="h-[80px] w-[80px] rounded-[50%]"/>):(<div className="h-[80px] w-[80px] rounded-[50%] bg-slate-500" />)}
+
+             {item.image ? ( <img src={item.image} alt="profile"  className="h-[80px] w-[80px] rounded-[50%]"/>):(<div className="h-[80px] w-[80px] rounded-[50%] bg-slate-500" />)}
               <div className="mt-5 flex flex-col">
                 <div className="flex gap-x-10">
-                <p className="font-medium">{user.displayName}</p>
+                <p className="font-medium">{item.user}</p>
+
 
                   <div className="flex gap-x-10">
                     <p className="font-medium">
