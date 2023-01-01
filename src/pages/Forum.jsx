@@ -2,22 +2,16 @@ import React, {useState} from "react";
 import { Container } from "../components/Container";
 import ForumCard from "../components/Forum/ForumCard";
 import "../index.css";
-
 import dog from "../images/köpek.png";
 import cat from "../images/kedi.png";
 import birds from "../images/papagan.png";
 import animal from "../images/animal.jpg";
-
 import CatCommentCard from "../components/Forum/CatCommentCard";
 import DogCommentCard from "../components/Forum/DogCommentCard";
 import BirdsCommentCard from "../components/Forum/BirdsCommentCard";
 import { RevealItems } from "../components/Animations/RevealAnimation";
-
-import OtherCard from "../components/Forum/OtherCard";
 import AskQuestionModal from "../components/Forum/AskQuestionModel";
 import { Helmet } from "react-helmet";
-import { useSelector } from "react-redux";
-
 
 
 const Forum = () => {
@@ -48,9 +42,7 @@ const Forum = () => {
   return (
     <div>
          <Helmet>
-
-        <title>Social Animals Forum</title>
-
+         <title>Social Animals Forum</title>
       </Helmet>
       <Container>
         <RevealItems delay={200}>
@@ -74,11 +66,9 @@ const Forum = () => {
           </button>
 
           <div className="mt-10 flex flex-col mb-16">
-
-            {active === "KÖPEK" && <DogCommentCard active={active}/>}
+          {active === "KÖPEK" && <DogCommentCard active={active}/>}
             {active === "KEDİ" && <CatCommentCard />}
             {active === "KUŞ" && <BirdsCommentCard />}
-
             
 
 

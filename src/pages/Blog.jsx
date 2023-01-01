@@ -22,15 +22,11 @@ const Blog = () => {
   }, []);
 
 
-
   return (
     <div>
 
       <Helmet>
-
-
-        <title>Social Animals Blog</title>
-
+      <title>Social Animals Blog</title>
       </Helmet>
       <RevealItems delay={200}>
         <div className="mt-20 flex justify-center">

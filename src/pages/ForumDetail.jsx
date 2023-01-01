@@ -39,9 +39,7 @@ const ForumDetail = () => {
   }, []);
   const { option } = useSelector((state) => state.forum);
 
-
   const { user } = useSelector((state) => state.auth);
-
   return (
     <div>
       <Container>
@@ -55,10 +53,8 @@ const ForumDetail = () => {
           <CatCommentCard />
         ) : option === "Kuşlar" ? (
           <BirdsCommentCard />
-
         ) : (
           option === "Diğerleri"(<OtherCard />)
-
         )}
 
         <button
@@ -68,10 +64,6 @@ const ForumDetail = () => {
           + Bir Cevap Yaz
         </button>
         <div>
-
-
-        
-
           {option === "Köpekler" ? (
             <>
               {forumDetails.map((item) => {
@@ -182,7 +174,6 @@ const ForumDetail = () => {
           ) : (
             <></>
           )}
-
         </div>
         <ReplyModal modalIsOpen={modalIsOpen} setModalIsOpen={setModalIsOpen} />
       </Container>

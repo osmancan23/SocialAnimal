@@ -16,6 +16,7 @@ import { logout } from "../store/auth";
 import toast from "react-hot-toast";
 import { collection, onSnapshot } from "firebase/firestore";
 import { Helmet } from "react-helmet";
+import { RevealItems } from "../components/Animations/RevealAnimation";
 
 
 function Profile() {
@@ -124,7 +125,6 @@ function Profile() {
   }, []);
 
 
-
   
 
 
@@ -133,11 +133,11 @@ function Profile() {
     <div>
 
         <Helmet>
-
         <title>Social Animals Profile</title>
-
       </Helmet>
       <Container>
+      <RevealItems delay={300}>
+
         <div className=" mt-20 flex max-w-[1000px] flex-col items-center">
           <div className="flex w-full mt-20 flex-row justify-between">
             <div className="flex h-[350px] w-[350px] flex-col gap-y-5">
@@ -239,7 +239,6 @@ function Profile() {
                   <button
                     className=" flex disabled:opacity-40 h-[20px] w-[120px] items-center justify-center rounded-[20px] bg-[#C58940]   p-4 text-[12px] font-semibold text-white"
                     type="submit"
-
                     disabled={!password}
                   >
                     Şifre Değiştir
@@ -255,6 +254,7 @@ function Profile() {
             </div>
           </div>
         </div>
+        </RevealItems >
      
       </Container>
     </div>

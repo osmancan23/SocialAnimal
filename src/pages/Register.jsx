@@ -45,9 +45,7 @@ function Register() {
   return (
     <Container>
        <Helmet>
-
-        <title>Social Animals Kayıt</title>
-
+       <title>Social Animals Kayıt</title>
       </Helmet>
       <RevealItems delay={300}>
         <div className="flex flex-row justify-center mt-32 gap-x-5 ">
